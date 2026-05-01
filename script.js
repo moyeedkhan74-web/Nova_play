@@ -759,43 +759,6 @@ const NovaApp = {
       };
       document.getElementById('file-input').onchange = (e) => NovaApp.engine.handleFiles(e.target.files);
       
-      document.getElementById('scan-folder-btn').onclick = async () => {
-         if (window.showDirectoryPicker) {
-            try {
-               const dirHandle = await window.showDirectoryPicker({ mode: 'read' });
-               NovaApp.ui.showToast('Scanning folder...');
-               const files = [];
-               async function scan(handle) {
-                  for await (const entry of handle.values()) {
-                     if (entry.kind === 'file') {
-                        const file = await entry.getFile();
-                        if (file.type.startsWith('audio/') || file.type.startsWith('video/') || file.name.endsWith('.mp3') || file.name.endsWith('.mp4')) {
-                           files.push(file);
-                        }
-                     } else if (entry.kind === 'directory') {
-                        await scan(entry);
-                     }
-                  }
-               }
-               await scan(dirHandle);
-               if (files.length > 0) {
-                  await NovaApp.engine.handleFiles(files);
-                  NovaApp.ui.showToast(`Imported ${files.length} media files!`);
-               } else {
-                  NovaApp.ui.showToast('No media found.');
-               }
-            } catch (e) {
-               console.error('Folder scan cancelled or failed:', e);
-            }
-         } else {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.webkitdirectory = true;
-            input.multiple = true;
-            input.onchange = (e) => NovaApp.engine.handleFiles(e.target.files);
-            input.click();
-         }
-      };
       // Subtitles
       document.getElementById('v-subtitles').onclick = () => document.getElementById('subtitle-input').click();
       document.getElementById('subtitle-input').onchange = (e) => {

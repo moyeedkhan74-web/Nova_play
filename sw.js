@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nova-play-v3.0';
+const CACHE_NAME = 'nova-play-v4.0';
 const ASSETS = [
   './',
   './index.html',
