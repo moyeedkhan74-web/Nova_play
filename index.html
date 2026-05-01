@@ -123,7 +123,6 @@
           <input type="text" id="search-input" placeholder="Search..." aria-label="Search" style="min-width: 0; margin-left: 6px; font-size: 13px;">
         </div>
         <div class="user-actions" style="display: flex; gap: 4px; flex-shrink: 0; align-items: center;">
-          <button id="scan-folder-btn" class="btn-icon" style="width:34px; height:34px;" title="Scan Device Folders"><svg class="icon" style="width:18px;height:18px;"><use href="#icon-folder"></use></svg></button>
           <button class="btn-icon hide-desktop" style="width:34px; height:34px;" onclick="NovaApp.ui.switchSection('settings')" title="Settings"><svg class="icon" style="width:18px;height:18px;"><use href="#icon-settings"></use></svg></button>
           
           <!-- Desktop Add Button -->
@@ -298,9 +297,9 @@
     <div id="welcome-overlay" class="full-modal" hidden style="z-index: 5000; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px);">
        <div style="text-align: center; max-width: 400px; padding: 32px; background: var(--surface-low); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); width: 90%;">
           <svg class="icon" style="width: 64px; height: 64px; color: var(--primary); margin-bottom: 16px;"><use href="#icon-folder"></use></svg>
-          <h2 style="margin-bottom: 12px; font-family: var(--font-heading);">Scan Your Device</h2>
-          <p style="color: var(--text-dim); margin-bottom: 24px; font-size: 14px; line-height: 1.5;">Allow Nova Play to automatically find and organize all audio and video files on your device.</p>
-          <button id="welcome-scan-btn" class="btn-primary" style="width: 100%; padding: 14px; font-size: 16px;">Grant Permission</button>
+          <h2 style="margin-bottom: 12px; font-family: var(--font-heading);">Welcome to Nova</h2>
+          <p style="color: var(--text-dim); margin-bottom: 24px; font-size: 14px; line-height: 1.5;">To get started, select your audio and video files. On a laptop, you can also easily drag and drop your media files directly onto the screen!</p>
+          <button id="welcome-scan-btn" class="btn-primary" style="width: 100%; padding: 14px; font-size: 16px;">Select Media Files</button>
           <button id="welcome-skip-btn" class="btn-ghost" style="margin-top: 12px; width: 100%;">Skip for now</button>
        </div>
     </div>

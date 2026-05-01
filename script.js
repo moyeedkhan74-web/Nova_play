@@ -747,7 +747,7 @@ const NovaApp = {
       // Files
       document.getElementById('welcome-scan-btn').onclick = () => {
          document.getElementById('welcome-overlay').hidden = true;
-         document.getElementById('scan-folder-btn').click();
+         document.getElementById('file-input').click();
       };
       document.getElementById('welcome-skip-btn').onclick = () => {
          document.getElementById('welcome-overlay').hidden = true;
@@ -1281,7 +1281,8 @@ const NovaApp = {
     dismissLoading() { 
        setTimeout(() => {
           document.getElementById('loading-screen').classList.add('fade-out');
-          if (NovaApp.state.library.audio.length === 0 && NovaApp.state.library.video.length === 0) {
+          // Only show Welcome Overlay on Mobile/Tablet
+          if (window.innerWidth < 1024 && NovaApp.state.library.audio.length === 0 && NovaApp.state.library.video.length === 0) {
              const welcome = document.getElementById('welcome-overlay');
              if (welcome) welcome.hidden = false;
           }
